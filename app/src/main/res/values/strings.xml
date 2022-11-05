@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Thiệp chúc mừng</string>
+    <string name="happy_birthday_text">Phong</string>
+    <string name="signnature">From Ngoc with Love!</string>
+    <string name="taskcomplete_title">All task completed</string>
+    <string name="taskcomplete_des">Nice work!</string>
+
+</resources>
