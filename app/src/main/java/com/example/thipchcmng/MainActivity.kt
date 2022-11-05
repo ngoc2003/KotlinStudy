@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.MaterialTheme
@@ -23,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +62,8 @@ fun BirthdayGreetingWithText(name: String, from: String) {
     }
 }
 
+
+// Layout Row and Column in Kotlin
 @Composable
 fun StudyLayout() {
     Row {
@@ -74,6 +78,8 @@ fun StudyLayout() {
     }
 
 }
+
+// Birthday Greeting with Image and text
 @Composable
 fun BirthdayGreeting(name: String, from: String) {
     val image = painterResource(R.drawable.birthcake)
@@ -99,10 +105,13 @@ fun Greeting(name: String) {
     }
 }
 
+// Show task complete
 @Composable
 fun CompleteTask() {
     Column(
-        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -121,7 +130,67 @@ fun CompleteTask() {
             fontSize = 16.sp
         )
     }
+}
 
+// Compose Quadrant
+@Composable
+fun card(title: String, description: String, backgroundColor: Color, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.fillMaxSize().background(backgroundColor).padding(10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = title,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 10.dp)
+        )
+        Text(
+            text = description,
+            textAlign = TextAlign.Justify
+        )
+    }
+}
+@Composable
+fun quadrant(){
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
+        Row(Modifier.weight(1f)){
+            card(
+                "Text composable",
+                "Display text and follows Materials Design guidelines",
+                backgroundColor = Color.Green,
+                modifier = Modifier.weight(1f)
+
+            )
+            card(
+                "Image composable",
+                "Create a composable that lays out and draws a given painter class object",
+                backgroundColor = Color.Yellow,
+                modifier = Modifier.weight(1f)
+
+            )
+
+        }
+        Row(Modifier.weight(1f)) {
+            card(
+                "Row composable",
+                "A layout composable that places  is children in a horizontal sequence",
+                backgroundColor = Color.Cyan,
+                modifier = Modifier.weight(1f)
+            )
+            card(
+                "Column composable",
+                "A layout composable that places its children in a vertical sequence",
+                backgroundColor = Color.LightGray,
+                modifier = Modifier.weight(1f)
+
+            )
+        }
+    }
 }
 
 @Preview(showBackground = true, name = "My Preview")
@@ -129,6 +198,7 @@ fun CompleteTask() {
 fun DefaultPreview() {
     ThiệpChúcMừngTheme {
 //        BirthdayGreeting(stringResource(R.string.happy_birthday_text), stringResource(R.string.signnature))
-        CompleteTask()
+//        CompleteTask()
+        quadrant()
     }
 }
