@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.MaterialTheme
@@ -135,8 +136,12 @@ fun CompleteTask() {
 // Compose Quadrant
 @Composable
 fun card(title: String, description: String, backgroundColor: Color, modifier: Modifier = Modifier) {
+    Surface(color = Color.White) {
     Column(
-        modifier = modifier.fillMaxSize().background(backgroundColor).padding(10.dp),
+        modifier = modifier
+            .fillMaxSize()
+            .background(backgroundColor)
+            .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -150,6 +155,8 @@ fun card(title: String, description: String, backgroundColor: Color, modifier: M
             textAlign = TextAlign.Justify
         )
     }
+    }
+
 }
 @Composable
 fun quadrant(){
@@ -193,12 +200,67 @@ fun quadrant(){
     }
 }
 
+// Business Card
+@Composable
+fun Businescard() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .background(Color.Blue)
+            .padding(bottom = 36.dp, top = 12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Bottom
+        ) {
+        Column(
+            Modifier.weight(1f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            val android = painterResource(R.drawable.ic_launcher_foreground)
+            Image(
+                    painter = android,
+                    contentDescription = null
+                )
+            Text(
+                text = "Android",
+                fontSize = 20.sp,
+                color = Color.White
+            )
+            Text(
+                text = stringResource( R.string.fullName),
+                fontSize = 36.sp,
+                color = Color.White
+            )
+            Text(
+                text = stringResource( R.string.role),
+                fontSize = 20.sp,
+                color = Color.Cyan
+            )
+        }
+        Column() {
+            Text(
+                text = stringResource( R.string.phone ),
+                fontSize = 20.sp,
+                color = Color.White
+            )
+            Text (
+                text = stringResource( R.string.email ),
+                fontSize = 20.sp,
+                color = Color.White
+            )
+        }
+    }
+
+}
+
 @Preview(showBackground = true, name = "My Preview")
 @Composable
 fun DefaultPreview() {
     ThiệpChúcMừngTheme {
 //        BirthdayGreeting(stringResource(R.string.happy_birthday_text), stringResource(R.string.signnature))
 //        CompleteTask()
-        quadrant()
+//        quadrant()
+        Businescard()
     }
 }

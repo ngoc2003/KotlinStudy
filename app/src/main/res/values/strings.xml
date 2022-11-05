@@ -4,5 +4,11 @@
     <string name="signnature">From Ngoc with Love!</string>
     <string name="taskcomplete_title">All task completed</string>
     <string name="taskcomplete_des">Nice work!</string>
+    <string name="fullName">Bui Thuy Ngoc</string>
+    <string name="role">Android Developer</string>
+    <string name="phone">0961.546.725</string>
+    <string name="email">buithuyngoc1@gmail.com</string>
+
+
 
 </resources>
